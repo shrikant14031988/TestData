@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, Route, Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
 import { RecipesStartComponent } from '../recipes/recipes-start/recipes-start.component';
