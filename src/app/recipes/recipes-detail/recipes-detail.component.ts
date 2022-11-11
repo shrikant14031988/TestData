@@ -18,14 +18,19 @@ export class RecipesDetailComponent implements OnInit {
     this.activatedRouter.params.subscribe((data: Params) => {
       this.id = +data['id'];
       this.selectedItem = this.recipeService.getRecipeById(this.id);
+      console.log(`From Details: {0}`, this.selectedItem);
     });
   }
 
   addIngredientsToShoppingList() {
-    this.recipeService.addIngredientsToShoppingList(this.selectedItem.ingrediant);
+    this.recipeService.addIngredientsToShoppingList(this.selectedItem.ingredient);
   }
 
   onEdit(): void {
     this.router.navigate(['edit'], { relativeTo: this.activatedRouter });
+  }
+  onDelete(): void {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipe']);
   }
 }

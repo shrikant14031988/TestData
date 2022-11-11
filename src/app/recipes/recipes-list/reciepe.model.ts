@@ -4,7 +4,7 @@ export class Recipe {
     public name: string;
     public description: string;
     public path: string;
-    public ingrediant?: Ingredient[];
+    public ingredient?: Ingredient[];
     /**
      *
      */
@@ -12,6 +12,6 @@ export class Recipe {
         this.name = name;
         this.description = descirption;
         this.path = path;
-        this.ingrediant = ingredient;
+        this.ingredient = ingredient;
     }
 }

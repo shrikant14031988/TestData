@@ -6,17 +6,23 @@ import { ShoppingListComponent } from '../shopping-list/shopping-list.component'
 import { RecipesStartComponent } from '../recipes/recipes-start/recipes-start.component';
 import { RecipesDetailComponent } from '../recipes/recipes-detail/recipes-detail.component';
 import { RecipesEditComponent } from '../recipes/recipes-edit/recipes-edit.component';
+import { RecipeResolverService } from '../shared/recipe-resolver.service';
+import { AuthComponent } from '../auth/auth.component';
+import { AuthGuard } from '../auth/auth.guard';
 
 const routeApps: Routes = [
-  { path: '', redirectTo: '/recipe', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth', pathMatch: 'full' },
   {
-    path: 'recipe', component: RecipesComponent, children: [
+       path: 'recipe',
+      component: RecipesComponent,canActivate:[AuthGuard], 
+       children: [
       { path: '', component: RecipesStartComponent },
       { path: 'new', component: RecipesEditComponent },
-      { path: ':id', component: RecipesDetailComponent },
-      { path: ':id/edit', component: RecipesEditComponent }
+      { path: ':id', component: RecipesDetailComponent, resolve: [RecipeResolverService] },
+      { path: ':id/edit', component: RecipesEditComponent, resolve: [RecipeResolverService] }
     ]
   },
+  { path: 'auth', component: AuthComponent },
   { path: 'shoppingList', component: ShoppingListComponent }
 
 ]
@@ -30,3 +36,5 @@ const routeApps: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+// test

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,15 +21,16 @@
     "@angular/platform-browser-dynamic": "~11.2.8",
     "@angular/router": "~11.2.8",
     "bootstrap": "^3.3.7",
+    "firebase-tools": "^9.17.0",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
-    "rxjs": "~6.6.0",
+    "rxjs": "^6.6.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.7",
-    "@angular/cli": "~11.2.7",
+    "@angular/cli": "^11.2.14",
     "@angular/compiler-cli": "~11.2.8",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",

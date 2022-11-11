@@ -5,21 +5,24 @@
         </div>
         <div class="navbar-default">
             <ul class="nav navbar-nav" style="margin-top: 5px;">
-                <!-- <li><a href="#" (click)="checkRecipe('recipe')">Reciepe</a></li>
-                <li><a href="#" (click)="checkRecipe('shopping-list')">Shopping List</a></li> -->
-                <li>
+                <li *ngIf="isAuthenticated">
                     <a routerLink="/recipe" routerLinkActive="active">Reciepe</a>
+                </li>
+                <li *ngIf="!isAuthenticated">
+                    <a routerLink="/auth" routerLinkActive="active">Authentication</a>
                 </li>
                 <li>
                     <a routerLink="/shoppingList" routerLinkActive="active">Shopping List</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown" appDropdown>
-                    <a class="dropdown-toggle" role="button" style="cursor: pointer;">Manage<span class="caret"></span></a>
+                <li><a style="cursor: pointer;" *ngIf="isAuthenticated" (click)="logout()">Logout</a></li>
+                <li class="dropdown" appDropdown *ngIf="isAuthenticated">
+                    <a class="dropdown-toggle" role="button" style="cursor: pointer;">Manage<span
+                            class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a style="cursor: pointer;">Saving Data</a></li>
-                        <li><a style="cursor: pointer;">Fetching Data</a></li>
+                        <li><a style="cursor: pointer;" (click)="onSave()">Saving Data</a></li>
+                        <li><a style="cursor: pointer;" (click)="onFetch()">Fetching Data</a></li>
                     </ul>
                 </li>
             </ul>
